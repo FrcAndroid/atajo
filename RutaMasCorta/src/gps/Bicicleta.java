@@ -13,18 +13,19 @@ public class Bicicleta {
         String marca = "Orbea";
     }
     
-    public static String rutaCorta(int [] camino1, int [] camino2, int [] camino3)
+    public static int getSuma(int[] camino) {
+    	int sum = 0;
+    	
+    	for(int i=0; i < camino.length; i++) {
+    		sum += camino[i];
+    	}
+    	
+    	return sum;
+    }
+    
+    public static String rutaCorta(int sum1, int sum2, int sum3)
     {
-        int sum1 = 0;
-        int sum2 = 0;
-        int sum3 = 0;
         
-        for(int i=0; i<camino1.length; i++)
-        {
-            sum1 += camino1[i];
-            sum2 += camino2[i];
-            sum3 += camino3[i];
-        }
         
         if(sum1 < sum2 && sum1 < sum3)
         {
@@ -56,7 +57,11 @@ public class Bicicleta {
         int[] camino1 = {12,34,21,46,25};
         int[] camino2 = {24,1,5,64,10,15,21};
         int[] camino3 = {1,5,6,7,8,10,20,46,104};
-        System.out.println("El camino más corto es:"+Bicicleta.rutaCorta(camino1,camino2,camino3)+".");
+        int sum1 = Bicicleta.getSuma(camino1);
+        int sum2 = Bicicleta.getSuma(camino2);
+        int sum3 = Bicicleta.getSuma(camino3);
+        
+        System.out.println("El camino más corto es:"+Bicicleta.rutaCorta(sum1,sum2,sum3)+".");
     }
 }
 
